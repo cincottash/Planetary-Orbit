@@ -1,4 +1,4 @@
-
+import math
 class planet:
 	 def __init__(self, name, mass, velocityX, velocityY, accelerationX, accelerationY, x, y, image):
 	 	self.image = image
