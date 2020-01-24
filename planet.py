@@ -11,7 +11,6 @@ class planet:
 	 	self.x = x
 	 	self.y = y
 	 	self.force = 0
-	 	self.forceX = 0
-	 	self.forceY = 0
 	 	self.theta = 0
+	 	self.distance = 0
 	 	
