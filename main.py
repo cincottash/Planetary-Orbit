@@ -64,16 +64,17 @@ while endlessLoop:
 	#reset the background
 	canvas.blit(background, (0,0))
 
-	#draw updated images
+	
 	for planet in planetList:
+		#draw updated images
 		canvas.blit(planet.image, (planet.x, planet.y))
-
-	#update planet attributes
-	for planet in planetList:
+		
+		#update planet attributes
 		calculateForce(planet)
 		
 		planet.x += planet.velocityX
 		planet.y += planet.velocityY
+		
 
 	#"Commit" the changes
 	pygame.display.update()
