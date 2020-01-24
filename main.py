@@ -34,19 +34,19 @@ def calculateForce(planetA):
 	forceY = 0
 
 	#calculating the force on planetA induced by every planet (except for the force exerted on itself)
-	for j in range(len(planetList)):
+	for planetB in planetList:
 	
 		#dont calculate the planets force on itself
-		if(planetA != planetList[j]):
+		if(planetA != planetB):
 
 			#distance formula
-			planetA.distance = math.sqrt((planetA.x - planetList[j].x)**2 + (planetA.y - planetList[j].y)**2)
+			planetA.distance = (planetA.x - planetB.x)**2 + (planetA.y - planetB.y)**2
 
 			#newtons law of gravational attraction.  Multiply by 10 to scale it down a little
-			planetA.force = (6.67*planetA.mass*planetList[j].mass)/(planetA.distance**2 * 10)
+			planetA.force = (6.67*planetA.mass*planetB.mass)/(planetA.distance * 10)
 
 			#calculating angle between the planets
-			planetA.theta = math.atan2(planetList[j].y - planetA.y, planetList[j].x - planetA.x)
+			planetA.theta = math.atan2(planetB.y - planetA.y, planetB.x - planetA.x)
 
 			#remember AP Physics, x = r cos(theta)
 			forceX += math.cos(planetA.theta) * planetA.force
@@ -65,15 +65,15 @@ while endlessLoop:
 	canvas.blit(background, (0,0))
 
 	#draw updated images
-	for i in range(len(planetList)):
-		canvas.blit(planetList[i].image, (planetList[i].x, planetList[i].y))
+	for planet in planetList:
+		canvas.blit(planet.image, (planet.x, planet.y))
 
 	#update planet attributes
-	for i in range(len(planetList)):
-		calculateForce(planetList[i])
+	for planet in planetList:
+		calculateForce(planet)
 		
-		planetList[i].x += planetList[i].velocityX
-		planetList[i].y += planetList[i].velocityY
+		planet.x += planet.velocityX
+		planet.y += planet.velocityY
 
 	#"Commit" the changes
 	pygame.display.update()
