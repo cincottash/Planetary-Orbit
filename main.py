@@ -32,8 +32,6 @@ planetList.append(planet("mercury", sunMass*0.00000166, 0.6, 2.0, 0, 0, 856, can
 distance = 0
 
 def calculateForce(planetA):
-	force = 0
-	theta = 0
 	forceX = 0
 	forceY = 0
 
@@ -48,14 +46,14 @@ def calculateForce(planetA):
 			distance = math.sqrt((planetA.x - planetList[j].x)**2 + (planetA.y - planetList[j].y)**2)
 
 			#newtons law of gravational attraction.  Multiply by 10 to scale it down a little
-			force = (6.67*planetA.mass*planetList[j].mass)/(distance**2 * 10)
+			planetA.force = (6.67*planetA.mass*planetList[j].mass)/(distance**2 * 10)
 
 			#calculating angle between the planets
-			theta = math.atan2(planetList[j].y - planetA.y, planetList[j].x - planetA.x)
+			planetA.theta = math.atan2(planetList[j].y - planetA.y, planetList[j].x - planetA.x)
 
 			#remember AP Physics, x = r cos(theta)
-			forceX += math.cos(theta) * force
-			forceY += math.sin(theta) * force
+			forceX += math.cos(planetA.theta) * planetA.force
+			forceY += math.sin(planetA.theta) * planetA.force
 
 	#a=f/m
 	planetA.accelerationX = forceX/(planetA.mass)
