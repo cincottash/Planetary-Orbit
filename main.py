@@ -48,7 +48,7 @@ def calculateForce(planetA):
 			distance = math.sqrt((planetA.x - planetList[j].x)**2 + (planetA.y - planetList[j].y)**2)
 
 			#newtons law of gravational attraction.  Multiply by 10 to scale it down a little
-			force = round((6.67*planetA.mass*planetList[j].mass)/(distance**2 * 10), 5)
+			force = (6.67*planetA.mass*planetList[j].mass)/(distance**2 * 10)
 
 			#calculating angle between the planets
 			theta = math.atan2(planetList[j].y - planetA.y, planetList[j].x - planetA.x)
@@ -58,11 +58,11 @@ def calculateForce(planetA):
 			forceY += math.sin(theta) * force
 
 	#a=f/m
-	planetA.accelerationX = round(forceX/(planetA.mass), 5)
-	planetA.accelerationY = round(forceY/(planetA.mass), 5)
+	planetA.accelerationX = forceX/(planetA.mass)
+	planetA.accelerationY = forceY/(planetA.mass)
 
-	planetA.velocityX += round(planetA.accelerationX, 5)
-	planetA.velocityY += round(planetA.accelerationY, 5)
+	planetA.velocityX += planetA.accelerationX
+	planetA.velocityY += planetA.accelerationY
 
 
 while endlessLoop:
@@ -77,8 +77,8 @@ while endlessLoop:
 	for i in range(len(planetList)):
 		calculateForce(planetList[i])
 		
-		planetList[i].x += round(planetList[i].velocityX, 5)
-		planetList[i].y += round(planetList[i].velocityY, 5)
+		planetList[i].x += planetList[i].velocityX
+		planetList[i].y += planetList[i].velocityY
 
 	#"Commit" the changes
 	pygame.display.update()
