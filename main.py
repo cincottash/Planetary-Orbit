@@ -42,7 +42,7 @@ def calculateForce(planetA):
 			#distance formula
 			planetA.distance = (planetA.x - planetB.x)**2 + (planetA.y - planetB.y)**2
 
-			#newtons law of gravational attraction.  Multiply by 10 to scale it down a little
+			#newtons law of gravational attraction (F = GMm/d**2).  Multiply by 10 to scale it down a little
 			planetA.force = (6.67*planetA.mass*planetB.mass)/(planetA.distance * 10)
 
 			#calculating angle between the planets
