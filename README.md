@@ -30,9 +30,5 @@ A list of required libraries is located in requirments.txt and can be installed 
 
 ## Known Issues
 
-## Acknowledgments
-
-[The Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
-John Horton Conway, 26 December 1937 - 11 April 2020
 
   
