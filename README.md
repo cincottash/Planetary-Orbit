@@ -21,6 +21,8 @@ A list of required libraries is located in requirments.txt and can be installed 
 
 * [Pygame](https://www.pygame.org/news)
 
+* [Newton's Law of Universal Gravitation](https://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation)
+
 ## Authors
 
 * **[Shane Cincotta](https://github.com/cincottash)**
